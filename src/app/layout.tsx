@@ -22,7 +22,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
     <html lang="pt-BR">
       <body
         className={classNames(
-          "text-app-gray-100 bg-app-gray-800 p-5 font-sans",
+          "flex min-h-screen flex-col bg-app-gray-800 p-5 font-sans text-app-gray-100",
           nunitoSans.variable,
         )}
       >

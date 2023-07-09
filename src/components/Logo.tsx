@@ -10,7 +10,7 @@ export function Logo(props: LogoProps): JSX.Element | null {
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      <g opacity={0.9}>
+      <g>
         <path
           d="M38 51.6l-1.2-1c-4-3.8-6.8-6.2-6.8-9.2 0-2.4 2-4.4 4.4-4.4 1.4 0 2.8.6 3.6 1.6.8-1 2.2-1.6 3.6-1.6 2.4 0 4.4 1.8 4.4 4.4 0 3-2.8 5.4-6.8 9.2l-1.2 1z"
           fill="#50B2C0"

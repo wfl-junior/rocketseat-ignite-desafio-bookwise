@@ -4,6 +4,10 @@ const defaultTheme = require("tailwindcss/defaultTheme");
 module.exports = {
   content: ["./src/**/*.tsx"],
   theme: {
+    screens: {
+      xs: "425px",
+      ...defaultTheme.screens,
+    },
     extend: {
       fontFamily: {
         sans: ["var(--font-nunito-sans)", ...defaultTheme.fontFamily.sans],
@@ -36,6 +40,9 @@ module.exports = {
           "linear-gradient(90deg, #7FD1CC 0%, #9694F5 100%)",
         "gradient-vertical":
           "linear-gradient(180deg, #7FD1CC 0%, #9694F5 100%)",
+      },
+      zIndex: {
+        1: 1,
       },
     },
   },
