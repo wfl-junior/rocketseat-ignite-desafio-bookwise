@@ -33,12 +33,15 @@ module.exports = {
             700: "#181C2A",
             800: "#0E1116",
           },
+          red: {
+            500: "#F75A68",
+          },
         },
       },
       backgroundImage: {
-        "gradient-horizontal":
+        "app-gradient-horizontal":
           "linear-gradient(90deg, #7FD1CC 0%, #9694F5 100%)",
-        "gradient-vertical":
+        "app-gradient-vertical":
           "linear-gradient(180deg, #7FD1CC 0%, #9694F5 100%)",
       },
       zIndex: {

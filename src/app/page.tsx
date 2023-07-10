@@ -1,4 +1,3 @@
-import { Rocket } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import loginImage from "~/assets/login-image.png";
@@ -6,10 +5,11 @@ import { LoginButton } from "~/components/LoginButton";
 import { Logo } from "~/components/Logo";
 import { GitHubIcon } from "~/components/icons/GitHubIcon";
 import { GoogleIcon } from "~/components/icons/GoogleIcon";
+import { RocketLaunchIcon } from "~/components/icons/RocketLaunchIcon";
 
 interface LoginProps {}
 
-async function Login({}: LoginProps): Promise<JSX.Element | null> {
+function Login({}: LoginProps): JSX.Element | null {
   return (
     <div className="flex flex-1 flex-col-reverse gap-6 lg:flex-row lg:items-stretch">
       <div className="relative isolate mx-auto flex h-[800px] w-full max-w-[598px] items-center justify-center overflow-hidden rounded-xl lg:mx-0 lg:h-auto">
@@ -46,8 +46,8 @@ async function Login({}: LoginProps): Promise<JSX.Element | null> {
               <span>Entrar com GitHub</span>
             </LoginButton>
 
-            <LoginButton as={Link} href="/">
-              <Rocket size={32} className="text-app-purple-100" />
+            <LoginButton as={Link} href="/home">
+              <RocketLaunchIcon size={32} className="text-app-purple-100" />
               <span>Acessar como visitante</span>
             </LoginButton>
           </div>
