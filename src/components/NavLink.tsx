@@ -1,6 +1,7 @@
 "use client";
 
 import classNames from "classnames";
+import { motion } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -25,9 +26,15 @@ export function NavLink({ href, children }: NavLinkProps): JSX.Element | null {
       )}
     >
       {isActive && (
-        <div
+        <motion.div
           aria-hidden="true"
+          layoutId="active-link-indicator"
           className="absolute -left-4 h-6 w-1 rounded-full bg-app-gradient-vertical text-base font-bold"
+          transition={{
+            type: "spring",
+            stiffness: 500,
+            damping: 30,
+          }}
         />
       )}
 
