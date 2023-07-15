@@ -10,18 +10,23 @@
     "lint:fix": "next lint --fix",
     "prettier": "prettier --check src",
     "prettier:fix": "prettier --write src",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "drizzle:generate": "drizzle-kit generate:pg --out src/database/migrations --schema src/database/schemas/*"
   },
   "dependencies": {
     "@types/node": "20.4.1",
     "@types/react": "18.2.14",
     "@types/react-dom": "18.2.6",
     "autoprefixer": "10.4.14",
+    "axios": "^1.4.0",
     "classnames": "^2.3.2",
+    "drizzle-orm": "^0.27.2",
     "eslint": "^8.44.0",
     "eslint-config-next": "^13.4.9",
     "framer-motion": "^10.12.18",
+    "jsonwebtoken": "^9.0.1",
     "next": "13.4.9",
+    "pg": "^8.11.1",
     "postcss": "8.4.25",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -29,8 +34,12 @@
     "typescript": "5.1.6"
   },
   "devDependencies": {
+    "@total-typescript/ts-reset": "^0.4.2",
+    "@types/jsonwebtoken": "^9.0.2",
+    "@types/pg": "^8.10.2",
     "@typescript-eslint/eslint-plugin": "^5.61.0",
     "@typescript-eslint/parser": "^5.61.0",
+    "drizzle-kit": "^0.19.5",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "prettier": "^2.8.4",

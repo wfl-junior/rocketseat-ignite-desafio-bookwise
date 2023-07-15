@@ -41,7 +41,10 @@ function Login({}: LoginProps): JSX.Element | null {
               <span>Entrar com Google</span>
             </LoginButton>
 
-            <LoginButton>
+            <LoginButton
+              as={Link}
+              href={`https://github.com/login/oauth/authorize?client_id=${process.env.NEXT_PUBLIC_GITHUB_CLIENT_ID}`}
+            >
               <GitHubIcon />
               <span>Entrar com GitHub</span>
             </LoginButton>

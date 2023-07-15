@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import sidebarCover from "~/assets/sidebar-cover.png";
+import { getAuthenticatedUser } from "~/utils/get-authenticated-user";
 import { Avatar } from "./Avatar";
 import { Logo } from "./Logo";
 import { NavLink } from "./NavLink";
@@ -12,8 +13,8 @@ import { UserIcon } from "./icons/UserIcon";
 
 interface SidebarProps {}
 
-export function Sidebar({}: SidebarProps): JSX.Element | null {
-  const isAuthenticated = true;
+export async function Sidebar({}: SidebarProps): Promise<JSX.Element | null> {
+  const user = await getAuthenticatedUser();
 
   return (
     <aside className="fixed inset-y-5 left-5 isolate flex w-[232px] flex-col items-center gap-16 overflow-hidden rounded-xl bg-app-gray-700 pb-6 pt-10">
@@ -38,20 +39,23 @@ export function Sidebar({}: SidebarProps): JSX.Element | null {
           <span>Explorar</span>
         </NavLink>
 
-        {isAuthenticated && (
+        {user ? (
           <NavLink href="/profile">
             <UserIcon size={24} />
             <span>Perfil</span>
           </NavLink>
-        )}
+        ) : null}
       </nav>
 
-      {isAuthenticated ? (
-        <button className="mt-auto flex items-center gap-3 text-app-gray-200 transition-colors hover:text-white">
-          <Avatar size={32} />
-          <span className="truncate">Cristofer</span>
-          <SignOutIcon size={20} className="text-app-red-500" />
-        </button>
+      {user ? (
+        <div className="mt-auto flex items-center gap-3">
+          <Avatar size={32} user={user} />
+          <span className="truncate text-app-gray-200">{user.name}</span>
+
+          <Link href="/api/auth/logout" className="text-app-red-500">
+            <SignOutIcon size={20} />
+          </Link>
+        </div>
       ) : (
         <Link
           href="/"
