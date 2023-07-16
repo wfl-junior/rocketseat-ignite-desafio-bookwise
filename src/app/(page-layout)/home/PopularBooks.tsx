@@ -1,5 +1,4 @@
 import Link from "next/link";
-import aRevolucaoDosBichos from "~/assets/covers/a-revolucao-dos-bichos.png";
 import { PopularBookCard } from "~/components/PopularBookCard";
 import { CaretRightIcon } from "~/components/icons/CaretRightIcon";
 
@@ -7,7 +6,8 @@ interface PopularBooksProps {}
 
 export function PopularBooks({}: PopularBooksProps): JSX.Element | null {
   return (
-    <section className="sticky top-4 flex flex-1 flex-col gap-4">
+    // extra 1.25rem is from the body padding bottom
+    <section className="sticky top-5 flex h-full max-h-[calc(100vh-(1.25rem+1.25rem))] flex-col gap-4">
       <div className="flex items-center justify-between">
         <h2 className="text-sm font-normal text-app-gray-100">
           Livros populares
@@ -29,14 +29,58 @@ export function PopularBooks({}: PopularBooksProps): JSX.Element | null {
             stars={5}
             author="George Orwell"
             title="A revolução dos bichos"
-            imageSrc={aRevolucaoDosBichos}
+            cover="/covers/a-revolucao-dos-bichos.png"
           />
 
           <PopularBookCard
             stars={4}
-            author="George Orwell"
-            title="A revolução dos bichos"
-            imageSrc={aRevolucaoDosBichos}
+            author="Zeno Rocha"
+            title="14 Hábitos de Desenvolvedores Altamente Produtivos"
+            cover="/covers/14-habitos-de-desenvolvedores-altamente-produtivos.png"
+          />
+
+          <PopularBookCard
+            stars={4}
+            author="Isaac Asimov"
+            title="O Fim da Eternidade"
+            cover="/covers/o-fim-da-eternidade.png"
+          />
+
+          <PopularBookCard
+            stars={4}
+            author="Aditya Bhargava"
+            title="Entendendo Algoritmos"
+            cover="/covers/entendendo-algoritmos.png"
+          />
+          <PopularBookCard
+            stars={4}
+            author="Aditya Bhargava"
+            title="Entendendo Algoritmos"
+            cover="/covers/entendendo-algoritmos.png"
+          />
+          <PopularBookCard
+            stars={4}
+            author="Aditya Bhargava"
+            title="Entendendo Algoritmos"
+            cover="/covers/entendendo-algoritmos.png"
+          />
+          <PopularBookCard
+            stars={4}
+            author="Aditya Bhargava"
+            title="Entendendo Algoritmos"
+            cover="/covers/entendendo-algoritmos.png"
+          />
+          <PopularBookCard
+            stars={4}
+            author="Aditya Bhargava"
+            title="Entendendo Algoritmos"
+            cover="/covers/entendendo-algoritmos.png"
+          />
+          <PopularBookCard
+            stars={4}
+            author="Aditya Bhargava"
+            title="Entendendo Algoritmos"
+            cover="/covers/entendendo-algoritmos.png"
           />
         </div>
       </div>

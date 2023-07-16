@@ -24,6 +24,7 @@ async function Login({}: LoginProps): Promise<JSX.Element | null> {
       <div className="relative isolate mx-auto flex h-[800px] w-full max-w-[598px] items-center justify-center overflow-hidden rounded-xl lg:mx-0 lg:h-auto">
         <Image
           alt=""
+          priority
           quality={100}
           src={loginImage}
           className="absolute -z-1 h-full w-full object-cover"

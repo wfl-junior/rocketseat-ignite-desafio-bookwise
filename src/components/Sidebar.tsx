@@ -21,6 +21,7 @@ export async function Sidebar({}: SidebarProps): Promise<JSX.Element | null> {
       <Image
         fill
         alt=""
+        priority
         quality={100}
         src={sidebarCover}
         className="absolute -z-1 h-full w-full"
@@ -40,7 +41,7 @@ export async function Sidebar({}: SidebarProps): Promise<JSX.Element | null> {
         </NavLink>
 
         {user ? (
-          <NavLink href="/profile">
+          <NavLink href={`/profile/${user.id}`} activePathname="/profile">
             <UserIcon size={24} />
             <span>Perfil</span>
           </NavLink>

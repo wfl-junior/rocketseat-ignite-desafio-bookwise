@@ -31,8 +31,8 @@ export function Avatar({ size, user }: AvatarProps): JSX.Element | null {
         />
       ) : (
         <span
-          style={{ fontSize: size / 2 }}
-          className="text-center font-medium leading-none"
+          style={{ fontSize: size * 0.44 }}
+          className="text-center font-medium"
         >
           {firstNameLetter}
           {lastNameLetter}

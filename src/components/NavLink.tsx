@@ -7,13 +7,18 @@ import { usePathname } from "next/navigation";
 
 interface NavLinkProps {
   href: string;
+  activePathname?: string;
   children: React.ReactNode;
 }
 
-export function NavLink({ href, children }: NavLinkProps): JSX.Element | null {
+export function NavLink({
+  href,
+  children,
+  activePathname,
+}: NavLinkProps): JSX.Element | null {
   const pathname = usePathname();
 
-  const isActive = pathname.startsWith(href);
+  const isActive = pathname.startsWith(activePathname || href);
 
   return (
     <Link
