@@ -1,7 +1,12 @@
+import type { Metadata } from "next";
 import { PageTitle } from "~/components/PageTitle";
 import { ChartLineUpIcon } from "~/components/icons/ChartLineUpIcon";
 import { PopularBooks } from "./PopularBooks";
 import { RecentReviews } from "./RecentReviews";
+
+export const metadata: Metadata = {
+  title: "Home | BookWise",
+};
 
 interface HomeProps {}
 

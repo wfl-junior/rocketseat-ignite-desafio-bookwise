@@ -19,13 +19,13 @@ export function PopularBookCard({
 }: PopularBookCardProps): JSX.Element | null {
   return (
     <Link
+      className="relative flex w-full gap-5 rounded-lg border-2 border-app-gray-700 bg-app-gray-700 px-5 py-4 transition-colors hover:border-app-gray-600"
       href={{
         pathname: "/explore",
         query: {
           bookId: ":id",
         },
       }}
-      className="relative flex w-full gap-5 rounded-lg border-2 border-app-gray-700 bg-app-gray-700 px-5 py-4 transition-colors hover:border-app-gray-600"
     >
       <Image
         width={64}

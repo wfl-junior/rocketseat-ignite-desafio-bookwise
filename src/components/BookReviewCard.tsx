@@ -85,8 +85,13 @@ export function BookReviewCard({
               <Fragment>
                 ...&nbsp;
                 <Link
-                  href="#"
                   className="text-app-purple-100 transition-colors hover:text-app-purple-200"
+                  href={{
+                    pathname: "/explore",
+                    query: {
+                      bookId: ":id",
+                    },
+                  }}
                 >
                   ver mais
                 </Link>

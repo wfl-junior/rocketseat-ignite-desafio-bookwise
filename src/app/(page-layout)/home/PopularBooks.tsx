@@ -52,36 +52,6 @@ export function PopularBooks({}: PopularBooksProps): JSX.Element | null {
             title="Entendendo Algoritmos"
             cover="/covers/entendendo-algoritmos.png"
           />
-          <PopularBookCard
-            stars={4}
-            author="Aditya Bhargava"
-            title="Entendendo Algoritmos"
-            cover="/covers/entendendo-algoritmos.png"
-          />
-          <PopularBookCard
-            stars={4}
-            author="Aditya Bhargava"
-            title="Entendendo Algoritmos"
-            cover="/covers/entendendo-algoritmos.png"
-          />
-          <PopularBookCard
-            stars={4}
-            author="Aditya Bhargava"
-            title="Entendendo Algoritmos"
-            cover="/covers/entendendo-algoritmos.png"
-          />
-          <PopularBookCard
-            stars={4}
-            author="Aditya Bhargava"
-            title="Entendendo Algoritmos"
-            cover="/covers/entendendo-algoritmos.png"
-          />
-          <PopularBookCard
-            stars={4}
-            author="Aditya Bhargava"
-            title="Entendendo Algoritmos"
-            cover="/covers/entendendo-algoritmos.png"
-          />
         </div>
       </div>
     </section>

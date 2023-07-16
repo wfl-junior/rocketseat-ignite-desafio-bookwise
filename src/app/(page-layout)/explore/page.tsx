@@ -1,5 +1,10 @@
+import type { Metadata } from "next";
 import { PageTitle } from "~/components/PageTitle";
 import { BinocularsIcon } from "~/components/icons/BinocularsIcon";
+
+export const metadata: Metadata = {
+  title: "Explorar | BookWise",
+};
 
 interface ExploreProps {}
 

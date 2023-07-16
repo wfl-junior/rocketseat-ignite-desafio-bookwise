@@ -71,7 +71,7 @@ export function RecentReviews({}: RecentReviewsProps): JSX.Element | null {
         />
 
         <BookReviewCard
-          createdAt="2023-07-13T12:00:00.000Z"
+          createdAt="2023-07-12T12:00:00.000Z"
           text="Nunc iaculis adipiscing ut sem a ut risus vel facilisi. Posuere pharetra sollicitudin sem velit sodales. Diam semper arcu nulla quis sapien nibh. Ut eget orci ipsum sed quis cras morbi placerat. Nec non at arcu adipiscing. Aenean cras ultrices cursus congue. Diam quis est proin id facilisi. Ac cras iaculis quam lectus eros orci semper fames amet. Id consequat purus faucibus pulvinar nisl molestie semper."
           stars={3}
           user={{
@@ -86,7 +86,7 @@ export function RecentReviews({}: RecentReviewsProps): JSX.Element | null {
         />
 
         <BookReviewCard
-          createdAt="2023-07-13T12:00:00.000Z"
+          createdAt="2023-07-11T12:00:00.000Z"
           text="Facilisis massa turpis morbi et. Aliquet arcu tellus id erat a lobortis et consectetur. Sit sit urna turpis vulputate. Morbi et leo in elit vitae bibendum scelerisque congue. Eget neque elementum non consequat lacus metus. Amet enim rhoncus neque proin purus nisl eget diam tellus. Id pellentesque nibh pellentesque pharetra viverra donec diam."
           stars={3}
           user={{
