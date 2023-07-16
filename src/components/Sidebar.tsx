@@ -28,7 +28,7 @@ export async function Sidebar({}: SidebarProps): Promise<JSX.Element | null> {
 
       <Logo width={128} height={32} />
 
-      <nav className="ml-16 flex flex-col gap-4 self-stretch">
+      <nav className="ml-16 flex flex-col gap-4 self-stretch pr-1">
         <NavLink href="/home">
           <ChartLineUpIcon size={24} />
           <span>Início</span>
@@ -52,7 +52,10 @@ export async function Sidebar({}: SidebarProps): Promise<JSX.Element | null> {
           <Avatar size={32} user={user} />
           <span className="truncate text-app-gray-200">{user.name}</span>
 
-          <Link href="/api/auth/logout" className="text-app-red-500">
+          <Link
+            href="/api/auth/logout"
+            className="text-app-red-500 transition-colors hover:text-red-600"
+          >
             <SignOutIcon size={20} />
           </Link>
         </div>

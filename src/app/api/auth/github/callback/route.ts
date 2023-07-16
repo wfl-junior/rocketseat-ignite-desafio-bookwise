@@ -3,10 +3,12 @@ import * as jwt from "jsonwebtoken";
 import { NextRequest, NextResponse } from "next/server";
 import { database } from "~/database";
 import { users } from "~/database/schemas/users";
-import { ACCESS_TOKEN_COOKIE_NAME } from "~/utils/constants";
+import {
+  ACCESS_TOKEN_COOKIE_NAME,
+  JWT_DURATION_IN_SECONDS,
+} from "~/utils/constants";
+import { accessTokenValidationSchema } from "~/validation/access-token";
 import { githubUserValidationSchema } from "~/validation/github-user";
-
-const jwtDurationInSeconds = 60 * 60 * 24 * 7; // 7 days
 
 interface AccessTokenResponse {
   access_token: string;
@@ -38,7 +40,10 @@ export async function GET(request: NextRequest) {
 
     const userResponse = await axios.get("https://api.github.com/user", {
       headers: {
-        Authorization: `Bearer ${accessTokenResponse.data.access_token}`,
+        Authorization: `Bearer ${
+          accessTokenValidationSchema.parse(accessTokenResponse.data)
+            .access_token
+        }`,
       },
     });
 
@@ -55,19 +60,20 @@ export async function GET(request: NextRequest) {
         target: users.githubId,
         set: {
           name: userInfo.name,
+          updatedAt: new Date(),
           avatarUrl: userInfo.avatar_url,
         },
       })
       .returning({ id: users.id });
 
-    const acessToken = jwt.sign({}, process.env.JWT_SECRET, {
+    const accessToken = jwt.sign({}, process.env.JWT_SECRET, {
       subject: user.id,
-      expiresIn: jwtDurationInSeconds,
+      expiresIn: JWT_DURATION_IN_SECONDS,
     });
 
     return NextResponse.redirect(new URL("/home", request.url), {
       headers: {
-        "Set-Cookie": `${ACCESS_TOKEN_COOKIE_NAME}=${acessToken}; Path=/; max-age=${jwtDurationInSeconds}; HttpOnly`,
+        "Set-Cookie": `${ACCESS_TOKEN_COOKIE_NAME}=${accessToken}; Path=/; max-age=${JWT_DURATION_IN_SECONDS}; HttpOnly`,
       },
     });
   } catch (error) {

@@ -21,6 +21,7 @@ export async function getAuthenticatedUser(): Promise<User | null> {
     return user ?? null;
   } catch (error) {
     console.error(error);
+    cookies().delete(ACCESS_TOKEN_COOKIE_NAME);
     return null;
   }
 }
