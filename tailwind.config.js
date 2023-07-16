@@ -1,3 +1,4 @@
+const plugin = require("tailwindcss/plugin");
 const defaultTheme = require("tailwindcss/defaultTheme");
 
 /** @type {import("tailwindcss").Config} */
@@ -52,5 +53,24 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require("tailwind-scrollbar"),
+    plugin(function ({ theme, matchUtilities }) {
+      matchUtilities(
+        {
+          "scrollbar-track-rounded": value => ({
+            "&::-webkit-scrollbar-track": {
+              borderRadius: value,
+            },
+          }),
+          "scrollbar-thumb-rounded": value => ({
+            "&::-webkit-scrollbar-thumb": {
+              borderRadius: value,
+            },
+          }),
+        },
+        { values: theme("borderRadius") },
+      );
+    }),
+  ],
 };

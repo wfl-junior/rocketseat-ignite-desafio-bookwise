@@ -6,9 +6,12 @@ interface PageLayoutProps {
 
 function PageLayout({ children }: PageLayoutProps): JSX.Element | null {
   return (
-    <div className="flex">
+    <div className="flex flex-1">
       <Sidebar />
-      <div className="mx-24 mt-18 pl-[252px]">{children}</div>
+
+      <div className="mx-16 mt-18 flex flex-1 flex-col pl-[252px] 2xl:mx-24">
+        {children}
+      </div>
     </div>
   );
 }
