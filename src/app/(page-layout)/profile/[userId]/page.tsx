@@ -6,10 +6,15 @@ import { UserIcon } from "~/components/icons/UserIcon";
 import { User } from "~/database/schemas/users";
 import { getAuthenticatedUser } from "~/utils/get-authenticated-user";
 import { getUserById } from "~/utils/get-user-by-id";
+import { ProfileSection } from "./ProfileSection";
+import { ReviewedBooksSearchForm } from "./ReviewedBooksSearchForm";
 
 interface ProfileProps {
   params: {
-    userId: string;
+    userId: User["id"];
+  };
+  searchParams: {
+    search?: string;
   };
 }
 
@@ -56,7 +61,10 @@ export async function generateMetadata({
   };
 }
 
-async function Profile({ params }: ProfileProps): Promise<JSX.Element | null> {
+async function Profile({
+  params,
+  searchParams,
+}: ProfileProps): Promise<JSX.Element | null> {
   const { user, isAuthenticatedUser } = await getProfileUser(params);
 
   if (!user) {
@@ -64,12 +72,20 @@ async function Profile({ params }: ProfileProps): Promise<JSX.Element | null> {
   }
 
   return (
-    <div className="flex flex-col gap-10">
+    <div className="flex flex-1 flex-col gap-10">
       {isAuthenticatedUser ? (
         <PageTitle icon={UserIcon} heading="Perfil" />
       ) : (
         <BackButton />
       )}
+
+      <div className="grid h-full grid-cols-[1fr_324px] gap-16">
+        <div className="flex flex-col gap-8">
+          <ReviewedBooksSearchForm defaultSearch={searchParams.search} />
+        </div>
+
+        <ProfileSection user={user} />
+      </div>
     </div>
   );
 }

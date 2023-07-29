@@ -1,15 +1,10 @@
 import dayjs from "dayjs";
-import "dayjs/locale/pt-br";
-import relativeTime from "dayjs/plugin/relativeTime";
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 import { Fragment } from "react";
 import { User } from "~/database/schemas/users";
 import { Avatar } from "./Avatar";
 import { BookStars } from "./BookStars";
-
-dayjs.locale("pt-br");
-dayjs.extend(relativeTime);
 
 interface BookReviewCardProps {
   user: Pick<User, "name" | "avatarUrl">;

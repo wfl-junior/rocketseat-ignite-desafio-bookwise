@@ -1,7 +1,13 @@
 import classNames from "classnames";
+import dayjs from "dayjs";
+import "dayjs/locale/pt-br";
+import relativeTime from "dayjs/plugin/relativeTime";
 import type { Metadata } from "next";
 import { Nunito_Sans } from "next/font/google";
 import "./globals.css";
+
+dayjs.locale("pt-br");
+dayjs.extend(relativeTime);
 
 const nunitoSans = Nunito_Sans({
   subsets: ["latin"],
