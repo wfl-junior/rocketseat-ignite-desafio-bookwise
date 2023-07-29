@@ -1,7 +1,9 @@
+import type { Metadata } from "next";
 import { notFound, redirect } from "next/navigation";
 import { BackButton } from "~/components/BackButton";
 import { PageTitle } from "~/components/PageTitle";
 import { UserIcon } from "~/components/icons/UserIcon";
+import { User } from "~/database/schemas/users";
 import { getAuthenticatedUser } from "~/utils/get-authenticated-user";
 import { getUserById } from "~/utils/get-user-by-id";
 
@@ -11,8 +13,37 @@ interface ProfileProps {
   };
 }
 
-export async function generateMetadata({ params }: ProfileProps) {
-  const user = await getUserById(params.userId);
+interface ProfileUserData {
+  user: User | null;
+  isAuthenticatedUser: boolean;
+}
+
+async function getProfileUser(
+  params: ProfileProps["params"],
+): Promise<ProfileUserData> {
+  const authenticatedUser = await getAuthenticatedUser();
+
+  if (!authenticatedUser) {
+    return redirect("/");
+  }
+
+  if (authenticatedUser.id === params.userId) {
+    return {
+      user: authenticatedUser,
+      isAuthenticatedUser: true,
+    };
+  }
+
+  return {
+    isAuthenticatedUser: false,
+    user: await getUserById(params.userId),
+  };
+}
+
+export async function generateMetadata({
+  params,
+}: ProfileProps): Promise<Metadata> {
+  const { user } = await getProfileUser(params);
 
   if (!user) {
     return {
@@ -26,16 +57,7 @@ export async function generateMetadata({ params }: ProfileProps) {
 }
 
 async function Profile({ params }: ProfileProps): Promise<JSX.Element | null> {
-  const authenticatedUser = await getAuthenticatedUser();
-
-  if (!authenticatedUser) {
-    return redirect("/");
-  }
-
-  const user =
-    authenticatedUser.id === params.userId
-      ? authenticatedUser
-      : await getUserById(params.userId);
+  const { user, isAuthenticatedUser } = await getProfileUser(params);
 
   if (!user) {
     return notFound();
@@ -43,7 +65,7 @@ async function Profile({ params }: ProfileProps): Promise<JSX.Element | null> {
 
   return (
     <div className="flex flex-col gap-10">
-      {authenticatedUser.id === params.userId ? (
+      {isAuthenticatedUser ? (
         <PageTitle icon={UserIcon} heading="Perfil" />
       ) : (
         <BackButton />

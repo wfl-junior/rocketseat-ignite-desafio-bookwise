@@ -1,11 +1,12 @@
 import { eq } from "drizzle-orm";
 import * as jwt from "jsonwebtoken";
 import { cookies } from "next/headers";
+import { cache } from "react";
 import { database } from "~/database";
 import { User, users } from "~/database/schemas/users";
 import { ACCESS_TOKEN_COOKIE_NAME } from "./constants";
 
-export async function getAuthenticatedUser(): Promise<User | null> {
+export const getAuthenticatedUser = cache(async (): Promise<User | null> => {
   const accessToken = cookies().get(ACCESS_TOKEN_COOKIE_NAME)?.value;
 
   if (!accessToken) {
@@ -24,4 +25,4 @@ export async function getAuthenticatedUser(): Promise<User | null> {
     cookies().delete(ACCESS_TOKEN_COOKIE_NAME);
     return null;
   }
-}
+});
