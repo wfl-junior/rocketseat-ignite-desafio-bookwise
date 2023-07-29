@@ -26,31 +26,40 @@ export function PopularBooks({}: PopularBooksProps): JSX.Element | null {
         <div className="absolute inset-0 flex flex-col gap-3 overflow-y-auto pr-1 scrollbar-thin scrollbar-track-app-gray-600 scrollbar-thumb-app-gray-700 scrollbar-thumb-rounded scrollbar-track-rounded">
           <PopularBookCard
             isRead
-            stars={5}
-            author="George Orwell"
-            title="A revolução dos bichos"
-            cover="/covers/a-revolucao-dos-bichos.png"
+            averageStars={5}
+            book={{
+              author: "George Orwell",
+              title: "A revolução dos bichos",
+              cover: "/covers/a-revolucao-dos-bichos.png",
+            }}
           />
 
           <PopularBookCard
-            stars={4}
-            author="Zeno Rocha"
-            title="14 Hábitos de Desenvolvedores Altamente Produtivos"
-            cover="/covers/14-habitos-de-desenvolvedores-altamente-produtivos.png"
+            averageStars={4}
+            book={{
+              author: "Zeno Rocha",
+              title: "14 Hábitos de Desenvolvedores Altamente Produtivos",
+              cover:
+                "/covers/14-habitos-de-desenvolvedores-altamente-produtivos.png",
+            }}
           />
 
           <PopularBookCard
-            stars={4}
-            author="Isaac Asimov"
-            title="O Fim da Eternidade"
-            cover="/covers/o-fim-da-eternidade.png"
+            averageStars={4}
+            book={{
+              author: "Isaac Asimov",
+              title: "O Fim da Eternidade",
+              cover: "/covers/o-fim-da-eternidade.png",
+            }}
           />
 
           <PopularBookCard
-            stars={4}
-            author="Aditya Bhargava"
-            title="Entendendo Algoritmos"
-            cover="/covers/entendendo-algoritmos.png"
+            averageStars={4}
+            book={{
+              author: "Aditya Bhargava",
+              title: "Entendendo Algoritmos",
+              cover: "/covers/entendendo-algoritmos.png",
+            }}
           />
         </div>
       </div>

@@ -7,11 +7,12 @@ import { Avatar } from "./Avatar";
 import { BookStars } from "./BookStars";
 
 interface BookReviewCardProps {
-  user: Pick<User, "name" | "avatarUrl">;
-  createdAt: string;
   text: string;
+  createdAt: string;
+  user: Pick<User, "id" | "name" | "avatarUrl">;
   stars: number;
   book: {
+    id: string;
     title: string;
     author: string;
     cover: StaticImageData | string;
@@ -28,7 +29,7 @@ export function BookReviewCard({
   return (
     <div className="flex flex-col gap-8 rounded-lg bg-app-gray-700 p-6">
       <div className="flex items-start gap-4">
-        <Link href="/profile/:id">
+        <Link href={`/profile/${user.id}`}>
           <Avatar size={40} user={user} />
         </Link>
 
@@ -52,7 +53,7 @@ export function BookReviewCard({
           href={{
             pathname: "/explore",
             query: {
-              bookId: ":id",
+              bookId: book.id,
             },
           }}
         >

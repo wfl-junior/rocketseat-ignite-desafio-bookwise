@@ -15,10 +15,12 @@ export function RecentReviews({}: RecentReviewsProps): JSX.Element | null {
           text="Semper et sapien proin vitae nisi. Feugiat neque integer donec et aenean posuere amet ultrices. Cras fermentum id pulvinar varius leo a in. Amet libero pharetra nunc elementum fringilla velit ipsum. Sed vulputate massa velit nibhoansiuh"
           stars={5}
           user={{
+            id: "1",
             avatarUrl: null,
             name: "Jaxson Dias",
           }}
           book={{
+            id: "1",
             title: "O Hobbit",
             author: "J.R.R. Tolkien",
             cover: "/covers/o-hobbit.png",
@@ -30,10 +32,12 @@ export function RecentReviews({}: RecentReviewsProps): JSX.Element | null {
           text="Nec tempor nunc in egestas. Euismod nisi eleifend at et in sagittis. Penatibus id vestibulum imperdiet a at imperdiet lectus leo. Sit porta eget nec vitae sit vulputate eget."
           stars={4}
           user={{
+            id: "2",
             avatarUrl: null,
             name: "Brandon Botosh",
           }}
           book={{
+            id: "2",
             author: "Douglas Adams",
             title: "O guia do mochileiro das galáxias",
             cover: "/covers/o-guia-do-mochileiro-das-galaxias.png",
@@ -45,10 +49,12 @@ export function RecentReviews({}: RecentReviewsProps): JSX.Element | null {
           text="Integer at tincidunt sed mi. Venenatis nunc justo porta viverra lacus scelerisque ut orci ultricies. Massa ultrices lacus non lectus pellentesque cras posuere neque. Nunc nisl curabitur et non. Tellus senectus elit porta lorem."
           stars={4}
           user={{
+            id: "3",
             avatarUrl: null,
             name: "Lindsey Philips",
           }}
           book={{
+            id: "3",
             author: "Aditya Bhargava",
             title: "Entendendo Algoritmos",
             cover: "/covers/entendendo-algoritmos.png",
@@ -60,10 +66,12 @@ export function RecentReviews({}: RecentReviewsProps): JSX.Element | null {
           text="Ornare amet scelerisque eget sit in donec dui. Tempus eget porttitor hendrerit eros viverra. Sit eget ipsum purus morbi curabitur cras gravida adipiscing dictum. Dui duis ut auctor dolor et mattis ultrices. Convallis quis in tortor pretium hendrerit sed. Vel et nibh sodales blandit egestas a quis bibendum."
           stars={4}
           user={{
+            id: "4",
             avatarUrl: null,
             name: "Cristofer Rosser",
           }}
           book={{
+            id: "4",
             author: "Junji Ito",
             title: "Fragmentos do Horror",
             cover: "/covers/fragmentos-do-horror.png",
@@ -75,10 +83,12 @@ export function RecentReviews({}: RecentReviewsProps): JSX.Element | null {
           text="Nunc iaculis adipiscing ut sem a ut risus vel facilisi. Posuere pharetra sollicitudin sem velit sodales. Diam semper arcu nulla quis sapien nibh. Ut eget orci ipsum sed quis cras morbi placerat. Nec non at arcu adipiscing. Aenean cras ultrices cursus congue. Diam quis est proin id facilisi. Ac cras iaculis quam lectus eros orci semper fames amet. Id consequat purus faucibus pulvinar nisl molestie semper."
           stars={3}
           user={{
+            id: "2",
             avatarUrl: null,
             name: "Brandon Botosh",
           }}
           book={{
+            id: "5",
             author: "Edgar Allan Poe",
             title: "Histórias extraordinárias",
             cover: "/covers/historias-extraordinarias.png",
@@ -90,10 +100,12 @@ export function RecentReviews({}: RecentReviewsProps): JSX.Element | null {
           text="Facilisis massa turpis morbi et. Aliquet arcu tellus id erat a lobortis et consectetur. Sit sit urna turpis vulputate. Morbi et leo in elit vitae bibendum scelerisque congue. Eget neque elementum non consequat lacus metus. Amet enim rhoncus neque proin purus nisl eget diam tellus. Id pellentesque nibh pellentesque pharetra viverra donec diam."
           stars={3}
           user={{
+            id: "1",
             avatarUrl: null,
             name: "Jaxson Dias",
           }}
           book={{
+            id: "6",
             author: "Julio Verne",
             title: "Viagem ao Centro da Terra",
             cover: "/covers/viagem-ao-centro-da-terra.png",

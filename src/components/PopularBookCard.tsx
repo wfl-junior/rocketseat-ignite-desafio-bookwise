@@ -3,18 +3,18 @@ import Link from "next/link";
 import { BookStars } from "./BookStars";
 
 interface PopularBookCardProps {
-  title: string;
-  stars: number;
-  author: string;
   isRead?: boolean;
-  cover: StaticImageData | string;
+  averageStars: number;
+  book: {
+    title: string;
+    author: string;
+    cover: StaticImageData | string;
+  };
 }
 
 export function PopularBookCard({
-  title,
-  stars,
-  cover,
-  author,
+  book,
+  averageStars,
   isRead = false,
 }: PopularBookCardProps): JSX.Element | null {
   return (
@@ -30,22 +30,22 @@ export function PopularBookCard({
       <Image
         width={64}
         height={94}
-        src={cover}
-        alt={`${author} - ${title}`}
+        src={book.cover}
+        alt={`${book.author} - ${book.title}`}
         className="self-start rounded object-cover"
       />
 
       <div className="flex flex-1 flex-col">
-        <strong className="text-base font-bold leading-snug text-app-gray-100 line-clamp-2">
-          {title}
+        <strong className="line-clamp-2 text-base font-bold leading-snug text-app-gray-100">
+          {book.title}
         </strong>
 
-        <span className="text-sm leading-relaxed text-app-gray-400">
-          {author}
+        <span className="text-sm font-normal leading-relaxed text-app-gray-400">
+          {book.author}
         </span>
 
         <div className="mt-auto">
-          <BookStars stars={stars} />
+          <BookStars stars={averageStars} />
         </div>
       </div>
 
