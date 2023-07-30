@@ -9,7 +9,7 @@ import { User } from "~/database/schemas/users";
 interface DataGroup {
   title: string;
   description: string;
-  icon: typeof BookOpenIcon;
+  icon: React.ElementType;
 }
 
 interface ProfileSectionProps {

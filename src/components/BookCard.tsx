@@ -2,35 +2,41 @@ import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 import { BookStars } from "./BookStars";
 
-interface PopularBookCardProps {
+interface BookCardProps {
   isRead?: boolean;
+  size?: "sm" | "md";
+  linkScroll?: boolean;
   averageStars: number;
   book: {
+    id: string;
     title: string;
     author: string;
     cover: StaticImageData | string;
   };
 }
 
-export function PopularBookCard({
+export function BookCard({
   book,
+  linkScroll,
+  size = "md",
   averageStars,
   isRead = false,
-}: PopularBookCardProps): JSX.Element | null {
+}: BookCardProps): JSX.Element | null {
   return (
     <Link
+      scroll={linkScroll}
       className="relative flex w-full gap-5 rounded-lg border-2 border-app-gray-700 bg-app-gray-700 px-5 py-4 transition-colors hover:border-app-gray-600"
       href={{
         pathname: "/explore",
         query: {
-          bookId: ":id",
+          bookId: book.id,
         },
       }}
     >
       <Image
-        width={64}
-        height={94}
         src={book.cover}
+        width={size === "sm" ? 64 : 108}
+        height={size === "sm" ? 94 : 152}
         alt={`${book.author} - ${book.title}`}
         className="self-start rounded object-cover"
       />

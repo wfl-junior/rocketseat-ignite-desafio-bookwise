@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { PopularBookCard } from "~/components/PopularBookCard";
+import { BookCard } from "~/components/BookCard";
 import { CaretRightIcon } from "~/components/icons/CaretRightIcon";
 
 interface PopularBooksProps {}
@@ -24,19 +24,23 @@ export function PopularBooks({}: PopularBooksProps): JSX.Element | null {
 
       <div className="relative flex-1">
         <div className="absolute inset-0 flex flex-col gap-3 overflow-y-auto pr-1 scrollbar-thin scrollbar-track-app-gray-600 scrollbar-thumb-app-gray-700 scrollbar-thumb-rounded scrollbar-track-rounded">
-          <PopularBookCard
+          <BookCard
             isRead
+            size="sm"
             averageStars={5}
             book={{
+              id: "1",
               author: "George Orwell",
               title: "A revolução dos bichos",
               cover: "/covers/a-revolucao-dos-bichos.png",
             }}
           />
 
-          <PopularBookCard
+          <BookCard
+            size="sm"
             averageStars={4}
             book={{
+              id: "2",
               author: "Zeno Rocha",
               title: "14 Hábitos de Desenvolvedores Altamente Produtivos",
               cover:
@@ -44,18 +48,22 @@ export function PopularBooks({}: PopularBooksProps): JSX.Element | null {
             }}
           />
 
-          <PopularBookCard
+          <BookCard
+            size="sm"
             averageStars={4}
             book={{
+              id: "3",
               author: "Isaac Asimov",
               title: "O Fim da Eternidade",
               cover: "/covers/o-fim-da-eternidade.png",
             }}
           />
 
-          <PopularBookCard
+          <BookCard
+            size="sm"
             averageStars={4}
             book={{
+              id: "4",
               author: "Aditya Bhargava",
               title: "Entendendo Algoritmos",
               cover: "/covers/entendendo-algoritmos.png",

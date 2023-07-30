@@ -4,13 +4,15 @@ import { usePathname, useRouter } from "next/navigation";
 import { Input } from "~/components/Input";
 import { MagnifyingGlassIcon } from "~/components/icons/MagnifyingGlassIcon";
 
-interface ReviewedBooksSearchFormProps {
+interface SearchFormProps {
+  placeholder: string;
   defaultSearch?: string;
 }
 
-export function ReviewedBooksSearchForm({
+export function SearchForm({
+  placeholder,
   defaultSearch,
-}: ReviewedBooksSearchFormProps): JSX.Element | null {
+}: SearchFormProps): JSX.Element | null {
   const router = useRouter();
   const pathname = usePathname();
 
@@ -32,8 +34,8 @@ export function ReviewedBooksSearchForm({
       <Input
         type="search"
         name="search"
+        placeholder={placeholder}
         defaultValue={defaultSearch}
-        placeholder="Buscar livro avaliado"
       />
 
       <Input.IconButton type="submit">

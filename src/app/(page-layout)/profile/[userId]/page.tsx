@@ -3,12 +3,12 @@ import { notFound, redirect } from "next/navigation";
 import { BackButton } from "~/components/BackButton";
 import { PageTitle } from "~/components/PageTitle";
 import { ReviewedBookCard } from "~/components/ReviewedBookCard";
+import { SearchForm } from "~/components/SearchForm";
 import { UserIcon } from "~/components/icons/UserIcon";
 import { User } from "~/database/schemas/users";
 import { getAuthenticatedUser } from "~/utils/get-authenticated-user";
 import { getUserById } from "~/utils/get-user-by-id";
 import { ProfileSection } from "./ProfileSection";
-import { ReviewedBooksSearchForm } from "./ReviewedBooksSearchForm";
 
 interface ProfileProps {
   params: {
@@ -82,7 +82,10 @@ async function Profile({
 
       <div className="grid h-full grid-cols-[1fr_324px] gap-16">
         <div className="flex flex-col gap-8">
-          <ReviewedBooksSearchForm defaultSearch={searchParams.search} />
+          <SearchForm
+            placeholder="Buscar livro avaliado"
+            defaultSearch={searchParams.search}
+          />
 
           <div className="flex flex-col gap-6">
             <ReviewedBookCard

@@ -32,7 +32,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
     <html lang="pt-BR">
       <body
         className={classNames(
-          "flex min-h-screen flex-col bg-app-gray-800 p-5 font-sans text-app-gray-100 scrollbar-thin scrollbar-track-app-gray-600 scrollbar-thumb-app-gray-700",
+          "flex min-h-screen flex-col overflow-x-hidden bg-app-gray-800 p-5 font-sans text-app-gray-100 scrollbar-thin scrollbar-track-app-gray-600 scrollbar-thumb-app-gray-700",
           nunitoSans.variable,
         )}
       >
