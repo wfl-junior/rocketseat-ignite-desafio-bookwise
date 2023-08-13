@@ -1,4 +1,5 @@
 export const ACCESS_TOKEN_COOKIE_NAME = "bookwise.access-token";
+export const REDIRECT_ROUTE_COOKIE_NAME = "bookwise.redirect-route";
 export const GOOGLE_AUTH_REDIRECT_URL =
   "http://localhost:3000/api/auth/google/callback";
 

@@ -15,7 +15,7 @@ export function InputRoot<T extends React.ElementType = "div">({
   return (
     <Component
       className={classNames(
-        "flex w-full items-center rounded border-2 border-app-gray-500 bg-transparent transition-colors focus-within:border-app-green-200",
+        "flex items-center rounded border-2 border-app-gray-500 bg-transparent transition-colors focus-within:border-app-green-200",
         className,
       )}
       {...props}

@@ -1,11 +1,13 @@
 import axios from "axios";
 import * as jwt from "jsonwebtoken";
+import { cookies } from "next/headers";
 import { NextRequest, NextResponse } from "next/server";
 import { database } from "~/database";
 import { users } from "~/database/schemas/users";
 import {
   ACCESS_TOKEN_COOKIE_NAME,
   JWT_DURATION_IN_SECONDS,
+  REDIRECT_ROUTE_COOKIE_NAME,
 } from "~/utils/constants";
 import { accessTokenValidationSchema } from "~/validation/access-token";
 import { githubUserValidationSchema } from "~/validation/github-user";
@@ -71,11 +73,18 @@ export async function GET(request: NextRequest) {
       expiresIn: JWT_DURATION_IN_SECONDS,
     });
 
-    return NextResponse.redirect(new URL("/home", request.url), {
-      headers: {
-        "Set-Cookie": `${ACCESS_TOKEN_COOKIE_NAME}=${accessToken}; Path=/; max-age=${JWT_DURATION_IN_SECONDS}; HttpOnly`,
-      },
+    const redirectRoute =
+      cookies().get(REDIRECT_ROUTE_COOKIE_NAME)?.value ||
+      new URL("/home", request.url);
+
+    cookies().delete(REDIRECT_ROUTE_COOKIE_NAME);
+    cookies().set(ACCESS_TOKEN_COOKIE_NAME, accessToken, {
+      path: "/",
+      httpOnly: true,
+      maxAge: JWT_DURATION_IN_SECONDS,
     });
+
+    return NextResponse.redirect(redirectRoute);
   } catch (error) {
     console.error(error);
     return NextResponse.redirect(new URL("/", request.url));

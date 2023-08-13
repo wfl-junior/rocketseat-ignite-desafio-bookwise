@@ -8,9 +8,9 @@ import { BookStars } from "./BookStars";
 
 interface BookReviewCardProps {
   text: string;
+  stars: number;
   createdAt: string;
   user: Pick<User, "id" | "name" | "avatarUrl">;
-  stars: number;
   book: {
     id: string;
     title: string;

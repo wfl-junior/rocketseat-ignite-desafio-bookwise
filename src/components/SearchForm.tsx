@@ -5,11 +5,13 @@ import { Input } from "~/components/Input";
 import { MagnifyingGlassIcon } from "~/components/icons/MagnifyingGlassIcon";
 
 interface SearchFormProps {
+  className?: string;
   placeholder: string;
   defaultSearch?: string;
 }
 
 export function SearchForm({
+  className,
   placeholder,
   defaultSearch,
 }: SearchFormProps): JSX.Element | null {
@@ -30,7 +32,7 @@ export function SearchForm({
   }
 
   return (
-    <Input.Root as="form" onSubmit={handleSearch}>
+    <Input.Root as="form" onSubmit={handleSearch} className={className}>
       <Input
         type="search"
         name="search"

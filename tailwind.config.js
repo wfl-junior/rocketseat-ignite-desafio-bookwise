@@ -51,6 +51,9 @@ module.exports = {
       spacing: {
         18: "4.5rem",
       },
+      backdropBlur: {
+        xs: "2px",
+      },
     },
   },
   plugins: [
